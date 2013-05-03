@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>PhoneGap Test</title>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript" src="./cordova-2.5.0.js"></script>
+
+<script src="js/bootstrap.min.js"></script>      
+
+<!--[if lt IE 9]> 
+	<script type="text/javascript" src="libs/flashcanvas.js"></script>
+	<![endif]-->
+<script src="js/jSignature.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/getpdf.js"></script>
+
+ 
+
+<style type="text/css">
+select {
+	padding: .5em;
+	margin: .5em;
+}
+
+#signatureparent {
+	width: 600px;
+	color: darkblue;
+	background-color: darkgrey;
+	/*max-width:600px;*/
+	padding: 20px;
+	color: darkblue;
+}
+
+/*This is the div within which the signature canvas is fitted*/
+#signature {
+	border: 2px solid black;
+	background-color: lightgrey;
+}
+
+/* Drawing the 'gripper' for touch-enabled devices */
+html.touch #content {
+	float: left;
+	width: 92%;
+}
+
+html.touch #scrollgrabber {
+	float: right;
+	width: 4%;
+	margin-right: 2%;
+	background-image:
+		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAAAAACh79lDAAAAAXNSR0IArs4c6QAAABJJREFUCB1jmMmQxjCT4T/DfwAPLgOXlrt3IwAAAABJRU5ErkJggg==)
+}
+
+html.borderradius #scrollgrabber {
+	border-radius: 1em;
+}
+</style>
+
+
+
+<script type="text/javascript">
+	/** Called when phonegap javascript is loaded */
+	function onDeviceReady() {
+	//	document.getElementById("helloworld").innerHTML = "Hello World! Loaded PhoneGap Framework!";
+		console.log("###################################");
+	}
+
+	/** Called when browser load this page*/
+	function init() {
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="css/style.css" rel="stylesheet" media="screen">
+</head>
+
+<body onLoad="init()">
+
+
+	<h2 id="title"></h2>
+	<div id="parametre">
+		<a href="#myModal" data-toggle="modal" class="btn btn-primary">Editer
+			votre signature</a>
+	</div>
+	<div>
+		<button onclick="deconnexion()" id="deconnexion"
+			class="btn btn-danger">Se Deconnecter</button>
+	</div>
+
+	<h3>Liste de vos documents</h3>
+
+	<form id="certificationForm" name="certificationForm">
+		<table class="table table-striped" id="listePDF">
+			<tr>
+				<th>Nom du document</th>
+				<th>Est Certifié</th>
+				<th>Sélection</th>
+			</tr>
+		</table>
+		<button type="submit" class="btn btn-success" id="certifier"
+			onclick="certification()">Certifier la sélection</button>
+	</form>
+
+	<div>
+		<div id="content">
+
+			<div id="tools"></div>
+			<div></div>
+			<div>
+				<p>Votre Signature :</p>
+				<div id="displayarea">
+					<div id="printPicture"></div>
+				</div>
+			</div>
+		</div>
+		<div id="scrollgrabber"></div>
+	</div>
+
+
+	<!-- MODAL POUR EDITER LA SIGNATURE -->
+
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+			<h3>Signer ici :</h3>
+		</div>
+		<div class="modal-body">
+
+			<div id="signatureparent">
+				<div id="signature"></div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button onclick="showSignature()" class="btn btn-primary">Afficher</button>
+			<button onclick="resetSignature()" class="btn btn-success">Effacer</button>
+		</div>
+	</div>
+	
+	
+
+	<!-- <form method="GET" action=""> -->
+	
+ 
+<!-- 	<button onclick="callRestToTemporisation()" class="btn btn-warning" -->
+<!-- 		type="submit">TEST2</button> -->
+
+<!-- 	<button onclick="submitMethode1()" class="btn btn-alert" type="submit">TEST</button> -->
+
+	
+<!-- 	Methode1 -->
+	<form method="get"
+		action="http://10.0.2.2:8080/TestRest/CertifierDocument" id="formMethode1">
+		
+	</form>
+
+</body>
+
+</html>
