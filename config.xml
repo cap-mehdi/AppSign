@@ -54,7 +54,7 @@
 	
 	<!-- Plugins can also be added here. -->
 	
-	<gap:plugin name="ChildBrowser" />
+	<gap:plugin name="ChildBrowser"  version="3.0.4" />
     <!--
 <gap:plugin name="Example" />
 A list of available plugins are available at https://build.phonegap.com/docs/plugins
