@@ -42,7 +42,7 @@ function loadPage(){
 
 function beginCertification(){
 	callRestToTemporisation();
-	window.plugins.childBrowser.showWebPage("http://10.0.2.2:8080/TestRest/CertifierDocument?identifiant="+identifiant+"&id="+idDoc);
+	window.plugins.childBrowser.showWebPage("http://192.168.0.100:8080/TestRest/CertifierDocument?identifiant="+identifiant+"&id="+idDoc);
 	
 }
 function callRestToTemporisation(){
