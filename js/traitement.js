@@ -1,4 +1,4 @@
-var serviceURL = "http://10.0.2.2:8080/TestRest/rest/";
+var serviceURL = "http://192.168.0.100:8080/TestRest/rest/";
 var identifiant;
 var url;
 var temp;
