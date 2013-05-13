@@ -1,6 +1,6 @@
 //a changer pour la mise en production
 //Mettre l'adresse du serveur
-var serviceURL = "http://10.0.2.2:8080/TestRest/rest/";
+var serviceURL = "http://192.168.0.100:8080/TestRest/rest/";
 
 
 $(document).ready( function () { 
@@ -8,24 +8,24 @@ $(document).ready( function () {
 		var $inputs = $("#connexionForm").find("input, select, button, textarea");
 		// serialize the data in the form
 		var serializedData = $("#connexionForm").serialize();
-		// à la soumission du formulaire						 
+		// ï¿½ la soumission du formulaire						 
 		$.ajax({ // fonction permettant de faire de l'ajax
-			type: "POST", // methode de transmission des données au fichier php
+			type: "POST", // methode de transmission des donnï¿½es au fichier php
 			url: serviceURL+"authentification",// url du fichier du WS
-			data: serializedData, // données à transmettre
+			data: serializedData, // donnï¿½es ï¿½ transmettre
 			datatype:"string",
-			success: function(msg){ // si l'appel a bien fonctionné
+			success: function(msg){ // si l'appel a bien fonctionnï¿½
 				if(msg=="error") 
 					alert('Veuillez entrer un identifiant et un mot de passe valide');
 				else{
-					alert('Authentification réussie ! identifiant : '+msg);
+					alert('Authentification rï¿½ussie ! identifiant : '+msg);
 					window.localStorage.setItem("identifiant", msg);
 					document.location.href="home.html?id="+msg+"";
 				}
 			}
 		});
 		
-		return false; // permet de rester sur la même page à la soumission du formulaire
+		return false; // permet de rester sur la mï¿½me page ï¿½ la soumission du formulaire
 	});
 });
 
