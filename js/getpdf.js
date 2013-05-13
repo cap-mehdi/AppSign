@@ -1,6 +1,6 @@
 //Permet de recuperer la liste des adresses correspondant au client
 
-var serviceURL = "http://10.0.2.2:8080/TestRest/rest/";
+var serviceURL = "http://192.168.0.100:8080/TestRest/rest/";
 var listePDF;
 var signatureBase64;
 var identifiant; 
@@ -26,7 +26,7 @@ $(document).ready( function () {
 
 		// serialize the data in the form
 		var serializedData = identifiant
-		// à la soumission du formulaire						 
+		// ï¿½ la soumission du formulaire						 
 		$.ajax({ 
 			type: "POST", 
 			url: serviceURL+"importation",
@@ -63,7 +63,7 @@ $(document).ready( function () {
 				}
 				if(pdfs.signature=="null"){	
 					document.getElementById("certifier").style.display="none";
-					$("#displayarea").append("<div id=\"message\" class=\"alert alert-info\"><p>Aucune signature enregistrée. " +
+					$("#displayarea").append("<div id=\"message\" class=\"alert alert-info\"><p>Aucune signature enregistrï¿½e. " +
 					"Pour saisir votre signature, cliquez sur \"Editer votre signature\"</p></div>");
 				}else{
 					$("#displayarea").append("<div id=\"message\"></div>");
@@ -104,7 +104,7 @@ function showSignature() {
 
 }
 
-//Fonction appelée lorsque l'on clique sur le bouton "Effacer"
+//Fonction appelï¿½e lorsque l'on clique sur le bouton "Effacer"
 function resetSignature(){
 	$("#signature").jSignature("reset");
 }
@@ -117,19 +117,19 @@ function sendSignature(){
 	var $inputs = $("#sendSign").find("input, select, button, textarea");
 	// serialize the data in the form
 	var serializedData = $("#sendSign").serialize();
-	// à la soumission du formulaire						 
+	// ï¿½ la soumission du formulaire						 
 	$.ajax({ 
 		type: "POST", 
 		url: serviceURL+"signature",
 		data: serializedData, 
 		datatype:"string",
-		success: function(msg){ // si l'appel a bien fonctionné
+		success: function(msg){ // si l'appel a bien fonctionnï¿½
 			if(msg=="error") {
-				alert('La signature n a pas été enregistrée');
+				alert('La signature n a pas ï¿½tï¿½ enregistrï¿½e');
 				return false;
 			}
 			else{
-				alert( 'Sauvegarde réussie ! ');
+				alert( 'Sauvegarde rï¿½ussie ! ');
 				return false;
 			}
 		}
@@ -170,7 +170,7 @@ function certification(){
  
 function  deconnexion(){
 	window.localStorage.setItem("identifiant",-1);
-	alert('Deconnexion réussie !');
+	alert('Deconnexion rï¿½ussie !');
 	document.location.href="index.html";
 }
 
